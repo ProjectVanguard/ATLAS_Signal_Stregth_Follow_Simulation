@@ -20,3 +20,7 @@ The algorithm was designed by the ATLAS DEV-OPS team and implemented by Manuel E
         3.3--The algorithm goes back to 1.
 
       3--Case2: t0 is the strongest signal and the algorithm stops and indicates that the animal is below inside a boxed raged relative to the box length chosen.
+
+
+
+<img src="Box_Algorithm/box.jpg" width="600">
