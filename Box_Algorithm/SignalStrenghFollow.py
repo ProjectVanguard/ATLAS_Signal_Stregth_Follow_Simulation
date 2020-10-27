@@ -12,10 +12,17 @@ class Data(object):
 #Drone Object
 class Drone(object):
     def __init__(self,x=0, y=0, z=0): self.x, self.y, self.z = x, y, z
-    def moveFr(self, x): self.x = float(self.x + x)
-    def moveRi(self, y): self.y = float(self.y + y) 
-    def moveUp(self, z): self.z = float(self.z + z) 
     def location(self):return [self.x,self.y,self.z]
+    def moveFr(self, x): 
+        self.x = float(self.x + x)
+        
+    def moveRi(self, y): 
+        self.y = float(self.y + y) 
+        
+    def moveUp(self, z): 
+        self.z = float(self.z + z) 
+        
+    
 
 
 #Calculate the simulated signal srenght by repliving this method with the actial signal sreght recived the algorithm will work as designed
@@ -57,6 +64,9 @@ def move(Drone,Data,Vector,INITIAL_DISTANCE):
     maxV = Data.getV()
     maxS = Data.getS()
     direction_of_travel = [maxV[0] - t0[0], maxV[1] - t0[1], maxV[2] - t0[2]]
+    print(" ")
+    print(" ")
+    print("Drone will move in %s --> %s direction and it is in %s direction relative to its starting position"%(Data.id,direction_of_travel,Drone.location()))
     Drone.moveFr(direction_of_travel[0] * 2)
     Drone.moveRi(direction_of_travel[1] * 2)
     Drone.moveUp(direction_of_travel[2] * 2)
@@ -85,8 +95,12 @@ def Simulation(Drone,Vector,length_of_box):
     if(max.getId() != "T0"):
         move(Drone,max,Vector,INITIAL_DISTANCE)
     else:
-        print("The animal is within a box of the length you entered on top of the animal")
-        print(Drone.location())
+        print(" ")
+        print(" ")
+        print("The animal is below the drone at location %s"%(Drone.location()))
+        print(" ")
+        print(" ")
+        
 
     #This repeats the previews logic but in a while loop I did it this way since it needed to be repeted until the animal was found but at the same time the first iteration
     #was needed outside of the loop in order to have a comparable max object to start he loop.
@@ -100,8 +114,11 @@ def Simulation(Drone,Vector,length_of_box):
         if(max.getId() != "T0"):
             move(Drone,max,Vector,INITIAL_DISTANCE)
         else:
-            print("The animal is within a box of the length you entered on top of the animal")
-            print(Drone.location())
+            print(" ")
+            print(" ")
+            print("The animal is below the drone at location %s"%(Drone.location()))
+            print(" ")
+            print(" ")
             break
 
 
@@ -112,41 +129,42 @@ def Simulation(Drone,Vector,length_of_box):
     
 #Several runs to test functionality.
 def main():
+    print("################## Simulation 1 ##########################")
     drone = Drone(0,0,100)
     lizard = [4234,234,0]
     Simulation(drone,lizard,3)
-
+    print("#########################################################")
+    print(" ")
+    print(" ")
+    print("################## Simulation 2 ##########################")
+    drone = Drone(40,300,100)
+    lizard = [0,0,0]
+    Simulation(drone,lizard,3)
+    print("#########################################################")
+    print(" ")
+    print(" ")
+    print("################## Simulation 3 ##########################")
     drone = Drone(0,0,100)
-    lizard = [234,-334,0]
-    Simulation(drone,lizard,4)
-
+    lizard = [20,5,0]
+    Simulation(drone,lizard,10)
+    print("#########################################################")
+    print(" ")
+    print(" ")
+    print("################## Simulation 4 ##########################")
+    drone = Drone(1111,23234,100)
+    lizard = [0,0,0]
+    Simulation(drone,lizard,3)
+    print("#########################################################")
+    print(" ")
+    print(" ")
+    print("################## Simulation 5 ##########################")
     drone = Drone(0,0,100)
-    lizard = [52,453,0]
-    Simulation(drone,lizard,6)
-
-    drone = Drone(0,0,100)
-    lizard = [4,65345,0]
-    Simulation(drone,lizard,345)
-
-    drone = Drone(0,0,100)
-    lizard = [43,653,0]
-    Simulation(drone,lizard,43)
-
-    drone = Drone(0,0,100)
-    lizard = [-4654,54645,54654]
-    Simulation(drone,lizard,453)
-
-    drone = Drone(0,0,100)
-    lizard = [54654,546,0]
+    lizard = [3333,9999,0]
     Simulation(drone,lizard,5)
+    print("#########################################################")
+    print(" ")
+    print(" ")
 
-    drone = Drone(0,0,100)
-    lizard = [54645,-500,0]
-    Simulation(drone,lizard,543)
-
-    drone = Drone(0,0,100)
-    lizard = [-654,-500,0]
-    Simulation(drone,lizard,432)
    
 
 if __name__ == "__main__":
