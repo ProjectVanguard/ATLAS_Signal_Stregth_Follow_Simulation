@@ -66,7 +66,7 @@ def move(Drone,Data,Vector,INITIAL_DISTANCE):
     direction_of_travel = [maxV[0] - t0[0], maxV[1] - t0[1], maxV[2] - t0[2]]
     print(" ")
     print(" ")
-    print("Drone will move in %s --> %s direction and it is in %s direction relative to its starting position"%(Data.id,direction_of_travel,Drone.location()))
+    print("Drone will move in %s --> %s direction and it is in %s location relative to its starting position"%(Data.id,direction_of_travel,Drone.location()))
     Drone.moveFr(direction_of_travel[0] * 2)
     Drone.moveRi(direction_of_travel[1] * 2)
     Drone.moveUp(direction_of_travel[2] * 2)
