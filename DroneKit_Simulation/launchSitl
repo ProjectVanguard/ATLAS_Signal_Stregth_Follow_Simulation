@@ -6,7 +6,7 @@ kill -9 $(ps -eF | grep mav | awk -F ' ' '{print $2}') > /dev/null 2>&1
 kill -9 $(ps -eF | grep apm | awk -F ' ' '{print $2}') > /dev/null 2>&1
 
 ##Launch a SITL instance
-/usr/local/bin/dronekit-sitl copter --home=44.5013,-88.0622,0,180&
+/usr/local/bin/dronekit-sitl copter --home=18.4851106,-66.4142911,0,180&
 
 sleep 5
 

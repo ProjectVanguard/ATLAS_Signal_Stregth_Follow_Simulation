@@ -8,6 +8,12 @@ import math
 import argparse
 
 
+
+########DataObject##############
+
+
+
+
 #########FUNCTIONS#################
 
 def connectMyCopter():
@@ -25,9 +31,13 @@ def connectMyCopter():
 
 	vehicle = connect(connection_string,wait_ready=True)
 
+
 	return vehicle
 
+
 def arm_and_takeoff(targetHeight):
+
+
 	while vehicle.is_armable!=True:
 		print("Waiting for vehicle to become armable.")
 		time.sleep(1)
