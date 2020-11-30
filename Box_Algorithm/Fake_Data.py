@@ -9,6 +9,7 @@ class Fake_Data():
             "y" : y,
             "z" : z
         }
+        
         self.grid = grid
 
         self.generate_fake_cordinates()
@@ -18,8 +19,15 @@ class Fake_Data():
         self.coordinates['x'], self.coordinates['y'] = randint(0, self.grid[0] - 1), randint(0, self.grid[1]- 1)
 
     def move_animal_location(self):
-        self.coordinates['x'], self.coordinates['y'] = randint(self.grid[0] - 1,(self.grid[0] - 1)+15), randint(self.grid[1] - 1,(self.grid[1] - 1)+15)
+        random = randint(1,10)
+
+        if (random % 2) == 0:
+            self.coordinates['x'], self.coordinates['y'] = randint(self.coordinates['x'] - 1,(self.coordinates['x'] +15) - 1), randint(self.coordinates['y'] - 1,(self.coordinates['y'] +15) - 1)
+        else:
+            self.coordinates['x'], self.coordinates['y'] = randint((self.coordinates['x']-15) - 1,(self.coordinates['x'] - 1)), randint((self.coordinates['y']-15) - 1,(self.coordinates['y'] - 1))
+
         self.save_data_to_json()
+        
 
     def get_Coordinates(self):
         return self.coordinates
@@ -33,7 +41,7 @@ def main():
     while True:
         print("\nFake data at the moment:")
         print('X: {} Y:{} Z:{}'.format(data.coordinates['x'],data.coordinates['y'],data.coordinates['z']))
-        time.sleep(10)
+        time.sleep(5)
         data.move_animal_location()
 
 if __name__ == "__main__":
