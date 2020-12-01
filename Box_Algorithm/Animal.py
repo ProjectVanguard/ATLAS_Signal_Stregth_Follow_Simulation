@@ -6,9 +6,9 @@ import json
 class Animal():
     def __init__(self, x=0, y=0, z=0, grid=[100, 100]):
         self.coordinates = {
-            "x": x,
-            "y": y,
-            "z": z
+            'x': x,
+            'y': y,
+            'z': z
         }
 
         self.grid = grid

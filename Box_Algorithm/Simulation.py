@@ -71,12 +71,74 @@ class Simulation:
         self.drone.moveFr((self.length_of_box/2) * -1)
         return box_plots
 
+    def probe(self):
+        print("Drone will start probing")
+
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveFr(100)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveRi(100 * -1)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveFr(100 * -1)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveFr(100 * -1)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveRi(100)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveRi(100)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveFr(100)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveFr(100)
+        if(Signal(self.drone).calcSS() > 0):
+            print("\n\nThe drone found signal at %s" %
+                  (self.drone.location()))
+            return self.run()
+
+        self.drone.moveRi(100 * -1)
+        self.drone.moveFr(100 * -1)
+
+        print("No animal was found on probing\n\n")
+
     def run(self):
 
         # Box_mission
         temp_plot = self.Box_mission()
 
         # Check if the max point in the box mission was T0 if not move in the direction of the max mission if it was end the simulation because you are on top of the animal.
+        # Checks if all data_points are 0 the drone will probe to find a signal.
         max = temp_plot[0]
         for i in temp_plot:
             if (max.get_Signal() <= i.get_Signal()):
@@ -91,6 +153,7 @@ class Simulation:
         # was needed outside of the loop in order to have a comparable max object to start he loop.
         while(max.get_Id != "T0"):
             temp_plot = self.Box_mission()
+
             max = temp_plot[0]
             for i in temp_plot:
                 if (max.get_Signal() <= i.get_Signal()):
