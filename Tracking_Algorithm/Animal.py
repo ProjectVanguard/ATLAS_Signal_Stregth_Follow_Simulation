@@ -17,17 +17,15 @@ class Animal():
 
     def generate_fake_cordinates(self):
         self.coordinates['x'], self.coordinates['y'] = random.uniform(
-            0, self.grid[0] - 1), random.uniform(0, self.grid[1] - 1)
+            0, self.grid[0]), random.uniform(0, self.grid[1])
 
     def move_animal_location(self):
-        _random = random.uniform(1, 10)
+        _randomX = random.uniform(-4, 5)
+        _randomY = random.uniform(-4, 5)
 
-        if (_random % 2) == 0:
-            self.coordinates['x'], self.coordinates['y'] = random.uniform(
-                self.coordinates['x'] - 1, (self.grid[0]) - 1), random.uniform(self.coordinates['y'] - 1, (self.grid[1]) - 1)
-        else:
-            self.coordinates['x'], self.coordinates['y'] = random.uniform(
-                (self.grid[0]) - 1, (self.coordinates['x'] - 1)), random.uniform((self.grid[1]) - 1, (self.coordinates['y'] - 1))
+        self.coordinates['x'] += _randomX
+
+        self.coordinates['y'] += _randomY
 
         self.save_data_to_json()
 
@@ -45,7 +43,7 @@ def main():
         print("\nFake data at the moment:")
         print('X: {} Y:{} Z:{}'.format(
             data.coordinates['x'], data.coordinates['y'], data.coordinates['z']))
-        time.sleep(25)
+        time.sleep(2)
         data.move_animal_location()
 
 
