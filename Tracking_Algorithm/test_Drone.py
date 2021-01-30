@@ -3,7 +3,7 @@ from Drone import Drone
 import unittest
 
 
-class Drone_test(unittest.TestCase):
+class test_Drone(unittest.TestCase):
     def test_drone_movement_X(self):
         drone = Drone(0.0, 0.0, 0.0)
         drone.moveFr(5)

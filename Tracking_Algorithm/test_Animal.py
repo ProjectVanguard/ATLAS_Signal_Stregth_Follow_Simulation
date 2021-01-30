@@ -3,7 +3,7 @@ from Animal import Animal
 import unittest
 
 
-class Animal_test(unittest.TestCase):
+class test_Animal(unittest.TestCase):
 
     def test_animal_in_range(self):
         animal = Animal()
@@ -20,8 +20,6 @@ class Animal_test(unittest.TestCase):
         location = animal.get_Coordinates().copy()
         animal.move_animal_location()
         self.assertNotEquals(location, animal.get_Coordinates())
-
-    # ...
 
 
 if __name__ == '__main__':
