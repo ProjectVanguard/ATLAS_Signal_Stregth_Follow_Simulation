@@ -13,7 +13,7 @@ class Drone_test(unittest.TestCase):
 
     # ...
 
-    def test_dorne_movement_Y(self):
+    def test_drone_movement_Y(self):
 
         drone = Drone(0.0, 0.0, 0.0)
         drone.moveRi(5)
@@ -23,7 +23,7 @@ class Drone_test(unittest.TestCase):
 
     # ...
 
-    def test_dorne_movement_Z(self):
+    def test_drone_movement_Z(self):
 
         drone = Drone(0.0, 0.0, 0.0)
         drone.moveUp(5)
